@@ -1,0 +1,109 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2021": true },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json", "./tsconfig.node.json"]
+  },
+  "plugins": [
+    "react-refresh",
+    "react",
+    "@typescript-eslint",
+    "simple-import-sort",
+    "unused-imports",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    "import/no-named-as-default": "off",
+    "unused-imports/no-unused-imports": "warn",
+    "prettier/prettier": "warn",
+    "react/jsx-curly-brace-presence": ["error", "never"],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Packages `react` related packages come first.
+          ["^react", "^@?\\w"],
+          // Internal packages.
+          [
+            "^(@|components)(/.*|$)",
+            "^(@|router)(/.*|$)",
+            "^(@|pages)(/.*|$)",
+            "^(@|hooks)(/.*|$)",
+            "^(@|layout)(/.*|$)",
+            "^(@|utils)(/.*|$)",
+            "^(@|services)(/.*|$)",
+            "^(@|config)(/.*|$)",
+            "^(@|context)(/.*|$)",
+            "^(@|assets)(/.*|$)",
+            "^(@|types)(/.*|$)",
+            "^(@|theme)(/.*|$)"
+          ],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "enumMember",
+        "format": ["UPPER_CASE"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": "default",
+        "modifiers": ["destructured"],
+        "format": null
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"],
+        "filter": {
+          "regex": "^_[a-zA-Z0-9]+",
+          "match": true
+        }
+      }
+    ]
+  }
+}
