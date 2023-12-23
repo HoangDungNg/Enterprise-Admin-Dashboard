@@ -1,9 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo $'Please be patient 😄 Your code is being checked before commiting 🚀\n'
+echo $'\nPlease be patient 😄 Your code is being checked before commiting 🚀'
 
-yarn build
+npx vite build
 if [ $? -ne 0 ]; then
   echo $'There were some errors ❌ Fix them and try again 🔧\n'
   exit 1

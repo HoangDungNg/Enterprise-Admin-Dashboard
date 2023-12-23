@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import { Outlet } from 'react-router-dom';
 
 const AppLayout: FC = () => {
-  return <div>AppLayout</div>;
+  return <Outlet />;
 };
 
 export default AppLayout;

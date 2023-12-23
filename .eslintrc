@@ -16,7 +16,7 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": ["./tsconfig.json", "./tsconfig.node.json"]
+    "project": ["./tsconfig.json"]
   },
   "plugins": [
     "react-refresh",
@@ -45,17 +45,14 @@
           ["^react", "^@?\\w"],
           // Internal packages.
           [
-            "^(@|components)(/.*|$)",
-            "^(@|router)(/.*|$)",
-            "^(@|pages)(/.*|$)",
-            "^(@|hooks)(/.*|$)",
-            "^(@|layout)(/.*|$)",
-            "^(@|utils)(/.*|$)",
-            "^(@|services)(/.*|$)",
-            "^(@|config)(/.*|$)",
-            "^(@|context)(/.*|$)",
+            "^(@|application)(/.*|$)",
             "^(@|assets)(/.*|$)",
-            "^(@|types)(/.*|$)",
+            "^(@|config)(/.*|$)",
+            "^(@|domain)(/.*|$)",
+            "^(@|hooks)(/.*|$)",
+            "^(@|services)(/.*|$)",
+            "^(@|ui)(/.*|$)",
+            "^(@|utils)(/.*|$)",
             "^(@|theme)(/.*|$)"
           ],
           // Side effect imports.
